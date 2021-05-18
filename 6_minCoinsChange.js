@@ -20,4 +20,4 @@ const minCoins = (coins, V) => {
     return table[V];
 };
 
-console.log(minCoins([9, 6, 5, 1], [9, 6, 5, 1]));
+console.log(minCoins([9, 6, 5, 1], 11));
