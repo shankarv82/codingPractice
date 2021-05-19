@@ -1,3 +1,7 @@
+// Inspired by
+// https://stackoverflow.com/users/12695343/bronislav-r%c5%af%c5%bei%c4%8dka. 
+// Thank you Bronislav Růžička
+
 const bufferPromise = (promiseFactoryFn, maxActive = 5) => {
     // Active promise count
     let activePromiseCount = 0;
@@ -39,3 +43,22 @@ const bufferPromise = (promiseFactoryFn, maxActive = 5) => {
             enqueuePromise({ args, resolve, reject })
         );
 }
+
+// == TESTING ==
+const loadRemote = (item) => new Promise((resolve, reject) => {
+    console.log("Started", item);
+    setTimeout(() => { 
+        console.log("Resolved", item);
+        resolve(item) 
+    }, 2000);
+});
+
+const mappingFuntion = bufferPromise(loadRemote, 2);
+
+setTimeout(() => {
+    [0,1,2,3,4,5].map(mappingFuntion)
+}, 0);
+
+setTimeout(() => {
+    [6,7,8,9,10,11,].map(mappingFuntion)
+}, 8000);
