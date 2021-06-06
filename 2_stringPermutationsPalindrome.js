@@ -1,8 +1,8 @@
-function checkPalindrom(str) {
+const checkPalindrom = str => {
     return str == str.split('').reverse().join('');
 }
 
-function getAllPermutations(string) {
+const getAllPermutations = string => {
   const results = [];
 
   if (string.length === 1) {
