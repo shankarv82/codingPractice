@@ -1,5 +1,12 @@
+const reverse = str => {
+  if (str === "") {
+    return ""; 
+  } 
+  return reverseString(str.substr(1)) + str.charAt(0);
+}
+
 const checkPalindrom = str => {
-    return str == str.split('').reverse().join('');
+    return str === reverse(str);
 }
 
 const getAllPermutations = string => {
