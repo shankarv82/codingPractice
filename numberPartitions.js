@@ -1,6 +1,6 @@
-export function numberPartitions(n: number) {
-    let resultsObject: any = {};
-    let resultsSortedObject: any = {};
+const numberPartitions = n => {
+    let resultsObject = {};
+    let resultsSortedObject = {};
 
     // Generate all partitions starting from 1 till n and bactrak with distance  
     for (let x = 1; x <= n; x++) {
@@ -30,3 +30,7 @@ export function numberPartitions(n: number) {
 
     return resultsObject[n];
 }
+
+console.log(numberPartitions(3));
+
+// [[3], [1, 2], [1, 1, 1], [1, 2]]
