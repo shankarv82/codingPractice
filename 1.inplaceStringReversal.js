@@ -21,7 +21,7 @@ const inplaceStringReversal = string => {
 
 console.log(inplaceStringReversal('shankar'));
 
-// Reverse words in a given string
+// Method 1: Reverse words in a given string
 const reverseSentence = statement => {
   let removeMultipleSpaces = statement.replace(/ /g, " ");
   const words = removeMultipleSpaces.split(" ");
@@ -32,3 +32,24 @@ const reverseSentence = statement => {
 }
 
 console.log(reverseSentence('shankar wrote this code'));
+// output: code this wrote shankar
+
+// Method 2:
+const reverseSentence2 = str => {
+    const string = str.replace(/\s+/g,' ');
+    const words = string.split(" ");
+
+    let i=0;
+    let j=words.length - 1;
+    while(i<=j) {
+        const temp = words[i];
+        words[i] = words[j];
+        words[j] = temp;
+        i++;
+        j--;
+    }
+    return words.join(" ");
+}
+console.log(reverseSentence('shankar wrote this code'));
+// code this wrote shankar
+
