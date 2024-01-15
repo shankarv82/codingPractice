@@ -61,3 +61,17 @@ const stringDecompress = (string) => {
 };
 
 console.log(stringDecompress("3[b2[ca]]"));
+
+// With regex
+const decodeString = function (s) {
+  const regex = /(\d+)\[([A-Za-z]+)\]/g;
+
+  function replacer(match, number, letter) {
+    return letter.repeat(number);
+  }
+
+  while (s.includes('[')) {
+    s = s.replace(regex, replacer);
+  }
+  return s;
+};
