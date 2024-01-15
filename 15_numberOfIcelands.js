@@ -4,7 +4,7 @@
 // Time complexity: O(mn)
 // Space complexity: O(mn)
 
-var numIslands = function(grid) {
+const numIslands = function(grid) {
 	let count = 0;
 	
 	function callDFS(grid, i, j) {
