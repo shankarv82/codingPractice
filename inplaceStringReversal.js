@@ -20,11 +20,14 @@ const inplaceStringReversal = string => {
 }
 
 console.log(inplaceStringReversal('shankar'));
+// Output - raknahs
+// Time complexity - O(n)
+// Space complexity - O(1)
 
 // Method 1: Reverse words in a given string
 const reverseSentence = statement => {
-  let removeMultipleSpaces = statement.replace(/ /g, " ");
-  const words = removeMultipleSpaces.split(" ");
+  let string = statement.replace(/\s+/g, " ");
+  const words = string.split(" ");
   for(let i=0; i<words.length; i++) {
     words[i] = inplaceStringReversal(words[i]);
   }
@@ -33,6 +36,8 @@ const reverseSentence = statement => {
 
 console.log(reverseSentence('shankar wrote this code'));
 // output: code this wrote shankar
+// Time complexity - O(2n) -> O(n)
+// Space complexity - O(1)
 
 // Method 2:
 const reverseSentence2 = str => {
@@ -52,4 +57,6 @@ const reverseSentence2 = str => {
 }
 console.log(reverseSentence('shankar wrote this code'));
 // code this wrote shankar
+// Time complexity - O(n)
+// Space complexity - O(1)
 
