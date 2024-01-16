@@ -1,3 +1,36 @@
+// Space optimization method
+function knapSack(weights, profits, Wt) { 
+    // Making and initializing dp array - 0 to Wt
+    const dp = Array(Wt + 1).fill(0); 
+
+    // Loop through all the profits - we need to maximize the profit
+    for (i = 0; i < profits.length; i++) { 
+        // Loop through all the weights. If Wt is 6 will run the loop from 6 till 1
+        for (w = Wt; w > 0; w--) { 
+            // consider wights[i] when if it is less than weight
+            if (weights[i] <= w) {  
+                // Finding the maximum profit between including the weight and exluding the weight
+                // including the weight - dp[w] 
+                // exluding the weight is dp[w - weights[i]] 
+                dp[w] = Math.max(dp[w], dp[w - weights[i]] + profits[i]); 
+            }
+        } 
+    } 
+      
+    // Returning the maximum value of knapsack 
+    return dp[Wt]; 
+} 
+  
+// Driver code 
+const profits = [ 60, 100, 120 ]; 
+const weights = [ 10, 20, 30 ]; 
+const Wt = 50;  
+console.log(knapSack(weights, profits, Wt)); 
+
+// Time complexity: O(n2)
+// Space complexity: O(n)
+
+// Tabulation method
 const solveKnapsack = (profits, weights, capacity) => {
     if (
         capacity <= 0 ||
