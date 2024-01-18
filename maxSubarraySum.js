@@ -1,14 +1,23 @@
-const maxSubarraySum = (arr, num) => {
-  let maxSum = 0;
-  let tempSum = 0;
-  if (arr.length < num) return null;
-  for (let i = 0; i < num; i++) {
-    maxSum += arr[i];
-  }
-  tempSum = maxSum;
-  for (let i = num; i < arr.length; i++) {
-    tempSum = tempSum - arr[i - num] + arr[i];
-    maxSum = Math.max(maxSum, tempSum);
-  }
-  return maxSum;
+// Function to find the maximum contiguous subarray
+function maxSubArraySum(a) {
+	let maxSunm = 0;
+	let tempSum = 0;
+	
+	for (let item of a){
+		tempSum = tempSum + item;
+		if (maxSum < tempSum) {
+			maxSum = tempSum;
+    }
+
+		if (tempSum < 0) {
+			tempSum = 0;
+    }
+	}
+	return maxSum;
 }
+
+// Driver code
+const a = [ -2, -3, 4, -1, -2, 1, 5, -3 ]
+console.log("Maximum contiguous sum is", maxSubArraySum(a, a.length))
+
+// Outout - Maximum contiguous sum is 7
