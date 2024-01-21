@@ -3,14 +3,14 @@
 // ...
 //   1  2  3  4  5  6  7  8  9 10
 
-
 const print2D = () => {
-	const arr = [];
+  const arr = [];
   let count = 100;
+  
   for(let i=0; i<10; i++) {
-  	arr[i] = new Array(10).fill(0);
+    arr[i] = new Array(10).fill(0);
     if (i % 2 === 1) {
-    	for(let j=9; j>=0; j--) {
+      for(let j=9; j>=0; j--) {
         arr[i][j] = count--;
       }  
     } else {
