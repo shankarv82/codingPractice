@@ -8,7 +8,7 @@ const isValidBST = function(root) {
             return false
         }
         
-        return helper(node.left, min, node.val) && helper(node.right, node.val, max)
+        return validNode(node.left, min, node.val) && validNode(node.right, node.val, max)
     }
 
     return validNode(root, null, null)
