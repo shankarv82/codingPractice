@@ -1,19 +1,19 @@
 // Function to find the maximum contiguous subarray
 function maxSubArraySum(a) {
-	let maxSunm = 0;
-	let tempSum = 0;
+  let maxSunm = 0;
+  let tempSum = 0;
 	
-	for (let item of a){
-		tempSum = tempSum + item;
-		if (maxSum < tempSum) {
-			maxSum = tempSum;
+  for (let item of a) {
+    tempSum = tempSum + item;
+    if (maxSum < tempSum) {
+      maxSum = tempSum;
     }
 
-		if (tempSum < 0) {
-			tempSum = 0;
+    if (tempSum < 0) {
+      tempSum = 0;
     }
-	}
-	return maxSum;
+  }
+  return maxSum;
 }
 
 // Driver code
